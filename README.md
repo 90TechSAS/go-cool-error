@@ -51,7 +51,7 @@ func C() (e cerror.Error) {
 Output:
 
 ```
-Error: Error message #1 ([Error message] 2 true)
+Error message #1 ([Error message] 2 true)
   main.C     /tmp/cerror/examples/main.go:30
   main.B     /tmp/cerror/examples/main.go:25
   main.A     /tmp/cerror/examples/main.go:20

@@ -32,9 +32,6 @@ func (e *Error) GetStack() string {
 */
 func (e *Error) Return(err error, msg ...interface{}) {
 	var sprint string
-	if err == nil {
-		return
-	}
 	e.Err = err
 	if len(msg) > 0 {
 		sprint += " ("
@@ -44,8 +41,12 @@ func (e *Error) Return(err error, msg ...interface{}) {
 		sprint = sprint[:len(sprint)-1] // Don't show the last space of sprint
 		sprint += ")"
 	}
-	e.stack = "Error: " + err.Error() + sprint + "\n" + getStack() // Concat the error message and the stack
-	e.stack = e.stack[:len(e.stack)-1]                             // Don't show the last end of line of the stack
+	if err != nil {
+		e.stack = err.Error() + sprint + "\n" + getStack() // Concat the error message and the stack
+	} else {
+		e.stack = sprint + "\n" + getStack() // Concat the error message and the stack
+	}
+	e.stack = e.stack[:len(e.stack)-1] // Don't show the last end of line of the stack
 }
 
 /*
