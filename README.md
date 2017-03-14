@@ -1,6 +1,18 @@
 # go-cool-error
 An tiny and beautiful error printer
 
+## Installation
+
+First, get ryanuber/columnize:
+```bash
+go get github.com/ryanuber/columnize
+```
+
+And then, get go-cool-error:
+```bash
+go get github.com/90TechSAS/go-cool-error
+```
+
 ## Example
 ```go 
 package main
