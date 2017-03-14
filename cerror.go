@@ -73,7 +73,7 @@ func getStackLine(i int) (string, error) {
 	functionNameArr := strings.Split(FullFunctionName, "/")
 	functionName := functionNameArr[len(functionNameArr)-1]
 	if ok == false || functionName == "runtime.main" {
-		return "", errors.New("Stack terminated")
+		return "", errors.New("End of stack")
 	}
 	return fmt.Sprintf("|%s|%s:%d", functionName, file, line), nil
 }
