@@ -55,7 +55,7 @@ func getStack() string {
 	var stack []string
 	for i := 3; ; i++ { // Begin at 3 to not print the loger stack itself
 		line, err := getStackLine(i)
-		if err != nil { // Break when the
+		if err != nil { // Break at the end of the stack
 			break
 		}
 		stack = append(stack, line)
